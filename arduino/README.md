@@ -11,8 +11,8 @@
 
 - [x] 다른 사람이 만들어 놓은 앱을 이용해서 테스트
 
-##### 2. 무게 센서 납뗌하고 연결해보기
-- [x] 납뗌하기 
+##### 2. 무게 센서 납땜하고 연결해보기
+- [x] 납땜하기 
 
 
 ![무게센서 연결법](https://postfiles.pstatic.net/MjAxNzA4MjFfMjc4/MDAxNTAzMzA2Mzc5NDAz.M7Mmtt2mlWXHUAiaMR5Dgm8NVX5T98rVah5g3UzuOv4g.mFrygDM9cSOfwA_nnBhKHpPAg5wBe5bodkccGgTp3ksg.PNG.eduino/image.png?type=w966)
