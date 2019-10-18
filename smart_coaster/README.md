@@ -30,8 +30,9 @@
 
 ##### (5. 밑잔이 있을 경우 불빛을 밝혀주는 구조로 나타내기)
 
+##### 6. 아두이노 블루투스를 이용한 안드로이드로 RGB led 제어하기
 
-
+![블루투스 모듈 & led 연결법](./lab03/LED.png)
 
 
 ### 실습 파일
@@ -40,9 +41,11 @@
 
 ##### lab02. 무게 센서 코드(lab02)
 
-
+##### lab03. 블루투스로 led 제어(lab03)
 ***
 ### 출처
 [아두이노 블루투스 관련 포스트](https://hyoin1223.tistory.com/entry/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EB%B8%94%EB%A3%A8%ED%88%AC%EC%8A%A4-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)
 
 [아두이노 무게센서(로드셀) 관련 포스트](https://blog.naver.com/PostView.nhn?blogId=eduino&logNo=221078931222)
+
+[아두이노 블루투스 관련 포스트](https://www.hackster.io/kamatalaashish/control-rgb-led-using-bluetooth-7832af)
