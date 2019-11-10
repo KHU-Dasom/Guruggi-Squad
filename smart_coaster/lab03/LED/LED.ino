@@ -23,7 +23,7 @@ void setup()
 }
 void loop()
 {
-  while (BLU.available() > 0)
+  if (BLU.available() > 0)
   {
     int redInt = BLU.parseInt();
     int greenInt = BLU.parseInt();

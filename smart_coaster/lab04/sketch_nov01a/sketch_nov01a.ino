@@ -4,22 +4,28 @@
 
 #define calibration_factor 70.0 // 로드셀 스케일 값 선언
 #define BOTTOM_FACTOR 15.0
-#define FEW_CHANGE 15.0
+#define FEW_CHANGE 500.0
 
 
 float latest, current, saved;
 
 int DOUT = 5;
 int CLK = 4;
-
 HX711 scale(DOUT, CLK); //엠프 핀 선언 
 
+bool isExist = false;
 int TxPin = 2;
 int RxPin = 3;
 int bluePin = 9;
 int greenPin = 10;
 int redPin = 11;
-SoftwareSerial BLU(TxPin, RxPin); 
+SoftwareSerial BLU(TxPin, RxPin);
+
+
+int redInt;
+int greenInt;
+int blueInt;
+
 void setup()
 {
   //Serial setup
@@ -36,30 +42,45 @@ void setup()
 
 void loop()
 {
-      Serial.print("hi");
-//    current = scale.get_units();
+  current = scale.get_units();
+  Serial.print(current);
+  Serial.print("    ");
 //    // 잔을 들었다.
 //    Serial.print(current);
-//    if (latest - current > FEW_CHANGE) {
-//      saved = latest;
-//      Serial.print("들었다잉");
-//    }
-  while (BLU.available() > 0)
+    if (latest - current > FEW_CHANGE) {
+      saved = latest;
+      Serial.print("들었다잉");
+      isExist = false;
+    }
+    else if (current - latest > FEW_CHANGE) {
+      Serial.print("놓았다잉");
+      Serial.println(saved);
+      isExist = true;
+      if (saved > current){
+        char buffer [100];
+        itoa(saved - current, buffer, 10);
+        BLU.write(buffer);
+        BLU.write('\n');
+      }
+    }
+//
+
+  delay(1000);
+
+  Serial.println();
+  latest = current;
+
+  if (BLU.available() > 0)
   {
-    latest = scale.get_units();
-    int redInt = BLU.parseInt();
-    int greenInt = BLU.parseInt();
-    int blueInt = BLU.parseInt();
+    redInt = BLU.parseInt();
+    greenInt = BLU.parseInt();
+    blueInt = BLU.parseInt();
     redInt = constrain(redInt, 0, 255);
     greenInt = constrain(greenInt, 0, 255);
     blueInt = constrain(blueInt, 0, 255);
-    if (BLU.available() > 0)
-    {
-      if (isExist(current))
-        setColor(redInt, greenInt, blueInt);
-      else
-        setColor(0,0,0);
-      
+    delay(2000);
+    if (BLU.available() > 0){
+      setColor(redInt, greenInt, blueInt);
       Serial.print("Red: ");
       Serial.print(redInt);
       Serial.print(" Green: ");
@@ -67,9 +88,17 @@ void loop()
       Serial.print(" Blue: ");
       Serial.print(blueInt);
       Serial.println();
+      
       BLU.flush();
       
     }
+  }
+  Serial.print(redInt);
+  if (isExist) {
+    setColor(redInt, greenInt, blueInt);
+  }
+  else {
+    setColor(0,0,0);
   }
 }
 void setColor(int red, int green, int blue)
@@ -78,14 +107,6 @@ void setColor(int red, int green, int blue)
   analogWrite(greenPin, green);
   analogWrite(bluePin, blue);
 }
-
-bool isExist(float current) {
-  if (current > BOTTOM_FACTOR)
-    return true;
-  else 
-    return false;
-}
-
 
 // 양이 줄었으면 -1 => 마셨다
 // 양이 그대로면 0
