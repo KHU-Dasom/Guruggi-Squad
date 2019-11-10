@@ -13,6 +13,31 @@ void setup() {
   Serial.println("Readings:");
 }
 
+// 양이 줄었으면 -1 => 마셨다
+// 양이 그대로면 0
+// 양이 늘었으면 1 => 따랐다
+int isChange(float current, float latest) {
+  if (latest - current > 15.0) {
+    //마셨다
+    
+
+    return -1;
+  }
+  else if (latest - current < -15.0) {
+    //따랐다
+
+
+    return 1;
+  }
+  else {
+    //암것도 안했다.
+
+
+    return 0;
+  }
+}
+
+
 void isUnderZZan(float current, float latest){
   if(abs(latest - current)>15.0){
     Serial.print("급격한 변화");
@@ -23,12 +48,12 @@ void loop() {
   current = scale.get_units();
   isUnderZZan(current, latest);
   Serial.print("current: ");
-  Serial.print(current);  //무제 출력 
+  Serial.print(current);  //무게 출력 
   Serial.println(); 
   
   latest = scale.get_units();
   Serial.print("latest: ");
-  Serial.print(latest);  //무제 출력 
+  Serial.print(latest);  //무게 출력 
   Serial.println(); 
 
 }
