@@ -9,7 +9,10 @@
 
   <img src = "./img/architecture.PNG">
 
-### 개발 목표
+### Poster
+  <img src ="./poster.PNG">
+
+### Goal
 ##### 1. 블루투스 모듈 연결해보기
 - [x] bluetooth 모듈 연결하기
 
