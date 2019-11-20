@@ -10,7 +10,7 @@
   <img src = "./img/architecture.PNG">
 
 ### Poster
-  <img src ="./poster.PNG">
+  <img src ="./img/poster.PNG">
 
 ### Goal
 ##### 1. 블루투스 모듈 연결해보기
