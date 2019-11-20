@@ -2,8 +2,8 @@
 
 ### Overall
 - If you want see just code, go to final folder.
- - SojuCoaster is a android app code.
- - Soju_Coaster is a arduino app code. 
+  - SojuCoaster is a android app code.
+  - Soju_Coaster is a arduino app code. 
 
 
 ### 개발 목표
