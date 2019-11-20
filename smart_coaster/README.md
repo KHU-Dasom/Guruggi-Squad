@@ -7,7 +7,7 @@
   - and added lambda code.
     - if you want a GET implementation must handle API GATE Way's mapping
 
-<img src = "./architecture.PNG">
+  <img src = "./architecture.PNG">
 
 ### 개발 목표
 ##### 1. 블루투스 모듈 연결해보기
