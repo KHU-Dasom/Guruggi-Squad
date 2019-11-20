@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     private int totalDrinking = 0; // 여태까지 마신 술의 양을 의미한다.
     private long rankOnTime;
     private int remainTime;
-    private int rankDrink = 0;
+    private int rankDrink;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
                 buttonRankView.setVisibility(View.INVISIBLE);
                 rankOnTime = System.currentTimeMillis();
                 rankOn = true;
+                rankDrink =0;
             }
         });
 
@@ -149,8 +150,10 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 System.out.println(Long.toString(System.currentTimeMillis()));
                 timing.setText(Long.toString((System.currentTimeMillis() - LatestDrunkTime) / 1000));
-                speed.setText(Long.toString( ((totalDrinking / 45) *3600)
-                                                / ((System.currentTimeMillis() - startTime) / 1000)) + "잔/h");
+                long sojuTime = (System.currentTimeMillis() - startTime) / 1000;
+                System.out.println(sojuTime);
+                if (totalDrinking > 0)
+                    speed.setText(((totalDrinking * 3600 / 45 ) / sojuTime) + "잔/h");
 
                 if (rankOn) {
                     remainTime = (int)(30 - (System.currentTimeMillis() - rankOnTime) / 1000);
@@ -179,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 });
                         builder.show();
-                        rankDrink = 0;
+
                         rankOn = false;
                         buttonRank.setVisibility(View.VISIBLE);
                         buttonRankView.setVisibility(View.VISIBLE);
@@ -411,7 +414,7 @@ public class MainActivity extends AppCompatActivity {
             rankConnection.setDoInput(true);
             rankConnection.setRequestMethod("POST");
             rankConnection.connect();
-
+            System.out.println(drinking);
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("drinking",drinking);
             jsonObject.put("name", name);
@@ -419,6 +422,7 @@ public class MainActivity extends AppCompatActivity {
             OutputStream out = rankConnection.getOutputStream();
             out.write(jsonObject.toString().getBytes("UTF-8"));
             out.flush();
+            System.out.println(jsonObject.toString());
 
             BufferedReader in = new BufferedReader(new InputStreamReader(rankConnection.getInputStream(), "UTF-8"));
             String inputLine = null;
