@@ -12,7 +12,8 @@
 ##### 1. 블루투스 모듈 연결해보기
 - [x] bluetooth 모듈 연결하기
 
-![bluetooth 모듈 연결법](http://kocoafab.cc/data/201706071515002382.png)
+<img src ="./arduino_bluetooth.png" width= "500px" height="500px">
+
 
 [android bluetooth app](https://hyoin1223.tistory.com/entry/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EB%B8%94%EB%A3%A8%ED%88%AC%EC%8A%A4-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D)
 
@@ -21,11 +22,10 @@
 ##### 2. 무게 센서 납땜하고 연결해보기
 - [x] 납땜하기 
 
+<img src ="./arduino_weightSensor.png">
 
-![무게센서 연결법](https://postfiles.pstatic.net/MjAxNzA4MjFfMjc4/MDAxNTAzMzA2Mzc5NDAz.M7Mmtt2mlWXHUAiaMR5Dgm8NVX5T98rVah5g3UzuOv4g.mFrygDM9cSOfwA_nnBhKHpPAg5wBe5bodkccGgTp3ksg.PNG.eduino/image.png?type=w966)
 
-
-![무게센서 연결법2](https://postfiles.pstatic.net/MjAxNzA4MjFfMTY3/MDAxNTAzMzA2NDY5Mzkw.LZEiCcwuGpIWET1OxILdTiz213ZIzdpZU-qZeV4efB4g.b7a8uy-1sSPlt0rJz2Hfn_YIRNcI-bDeFKJok1b6CAYg.PNG.eduino/image.png?type=w966)
+<img src ="./arduino_weightSensor(2).png">
 
 - [x] 센서 코드 작성
 
@@ -44,7 +44,8 @@
 ##### 6. 아두이노 블루투스를 이용한 안드로이드로 RGB led 제어하기
 - [x] BLUETOOTH 통신 SETTING
 
-![블루투스 모듈 & led 연결법](./lab03/LED.PNG)
+<img src ="./arduino_LED.png">
+
 
 ##### 7. Android application 개발
 - [x] ui setting
