@@ -7,6 +7,7 @@
   - and added lambda code.
     - if you want a GET implementation must handle API GATE Way's mapping
 
+<img src = "./architecture.PNG">
 
 ### 개발 목표
 ##### 1. 블루투스 모듈 연결해보기
@@ -44,7 +45,7 @@
 ##### 6. 아두이노 블루투스를 이용한 안드로이드로 RGB led 제어하기
 - [x] BLUETOOTH 통신 SETTING
 
-<img src ="./arduino_LED.png">
+<img src ="./arduino_LED.PNG">
 
 
 ##### 7. Android application 개발
